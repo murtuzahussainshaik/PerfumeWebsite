@@ -1,0 +1,33 @@
+/* Hero Section */
+.hero {
+  background: url("https://t4.ftcdn.net/jpg/08/10/81/25/360_F_810812587_wPaRjzKCi8EolpN8MQABWEix89kKjBtH.jpg")
+    center/cover no-repeat;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+.hero .btn {
+  color: white;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+.hero .btn:hover {
+  color: black;
+}

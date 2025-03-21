@@ -1,0 +1,249 @@
+/* ProductListPage.css */
+/* Elegant minimalist styling for a perfume product listing page */
+
+:root {
+  --primary-color: #333;
+  --secondary-color: #f8f3ef;
+  --accent-color: #d4af37;
+  --text-color: #333;
+  --light-text: #767676;
+  --border-color: #e0e0e0;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s ease;
+}
+
+.product-list-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  color: var(--text-color);
+}
+
+/* Header */
+.product-list-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.product-list-header h1 {
+  font-size: 36px;
+  font-weight: 300;
+  margin: 0 0 15px 0;
+  letter-spacing: 2px;
+}
+
+.product-list-header p {
+  font-size: 18px;
+  color: var(--light-text);
+  font-style: italic;
+}
+
+/* Product Controls */
+.product-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.filter-controls {
+  flex: 2;
+  min-width: 300px;
+}
+
+.filter-controls h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.category-btn {
+  padding: 8px 16px;
+  background: none;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.category-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+.category-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.sort-controls {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-controls label {
+  font-size: 14px;
+}
+
+#sort-select {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  background-color: white;
+  cursor: pointer;
+  font-family: inherit;
+  min-width: 180px;
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 30px;
+}
+
+/* No Products Message */
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 0;
+  font-size: 18px;
+  color: var(--light-text);
+}
+
+/* Loading and Error States */
+.loading,
+.error {
+  text-align: center;
+  padding: 60px 0;
+  font-size: 18px;
+  color: var(--light-text);
+}
+
+.error {
+  color: #d85050;
+}
+
+/* ProductCard styles - assuming you have a separate component for this, 
+     but including basic styling for completeness */
+.product-card {
+  background-color: white;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.product-card-image {
+  height: 300px;
+  overflow: hidden;
+  background-color: var(--secondary-color);
+}
+
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.05);
+}
+
+.product-card-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-name {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+}
+
+.product-card-category {
+  color: var(--light-text);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.product-card-price {
+  font-size: 18px;
+  margin-top: auto;
+}
+
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+/* For featured products */
+.product-card.featured::before {
+  content: "Featured";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .sort-controls {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  #sort-select {
+    flex-grow: 1;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
